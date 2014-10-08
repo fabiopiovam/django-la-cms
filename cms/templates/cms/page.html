@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+{% block title %} {{ page.title }} {% endblock %}
+
+{% block content %}
+<div class="germinal-section section-institutional">
+	<div class="container marketing">
+		<div class="row featurette">
+			<div class="col-md-12">
+				<h2 class="featurette-heading"> {{ page.title }}</h2>
+				<p class="lead">
+		            {% autoescape off %}
+		            {{ page.content }}
+		            {% endautoescape %}
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

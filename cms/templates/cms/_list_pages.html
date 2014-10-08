@@ -1,0 +1,14 @@
+{% for page in pages %}
+<div class="row featurette">
+	<div class="col-md-12">
+		<h2 class="featurette-heading"> {{ page.title }}</h2>
+		<p class="lead">
+            {% autoescape off %}
+            {{ page.content }}
+            {% endautoescape %}
+		</p>
+	</div>
+</div>
+
+{% if not forloop.last %}<hr class="featurette-divider">{% endif %}
+{% endfor %}
