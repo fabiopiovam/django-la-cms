@@ -19,11 +19,9 @@ setup(
         'Django app for a simple content management system'
     ),
     long_description=README,
-    install_requires=[
-        'Django>=1.4.10',
-        'django-admin-sortable==1.7.3',
-        'django-ckeditor-updated==4.4.0',
-        '-e git://github.com/laborautonomo/django-la-tags.git#egg=django-la-tags',
+    install_requires=REQUIREMENTS,
+    dependency_links = [
+        '-e git://github.com/laborautonomo/django-la-tags.git@v0.1.0#egg=django-la-tags',
     ],
     author='Fábio Piovam Elias',
     author_email='fabio@laborautonomo.org',
