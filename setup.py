@@ -21,7 +21,7 @@ setup(
     long_description=README,
     install_requires=REQUIREMENTS,
     dependency_links = [
-        '-e git://github.com/laborautonomo/django-la-tags.git@4ea8e416933bb56e49f43dffcb8e2990c0e860a6#egg=django-la-tags',
+        '-e git://github.com/laborautonomo/django-la-tags.git#egg=django-la-tags',
     ],
     author='Fábio Piovam Elias',
     author_email='fabio@laborautonomo.org',
