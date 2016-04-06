@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import os
+from os.path import join, dirname
 import sys
 
 from pip.req import parse_requirements
@@ -9,6 +10,8 @@ from setuptools import setup, find_packages
 
 # allow setup.py to be run from any path and open files
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
+
+ROOT = dirname(__file__)
 
 try:
     README = open('README.md').read()
@@ -18,16 +21,19 @@ except:
 def get_requirements(filename):
     install_requires = []
     dependency_links = []
+    
+    dependency_links = [line.strip()
+            for line in open(join(ROOT, filename))
+            if '://' in line]
+    
     for r in parse_requirements(filename, session=False):
-        if hasattr(r, 'link') and r.link and r.link.url:
-            r.req.specs = [('<=', '99.99')]
-            dependency_links.append(r.link.url+'-99.99')
-            dependency_links.append(r.link.url)
         install_requires.append(str(r.req))
+        
     return install_requires, dependency_links
 
 install_requires, dependency_links = get_requirements('requirements.txt')
-
+print install_requires
+print dependency_links
 setup(
     name='django-la-cms',
     version="v0.1.0",
