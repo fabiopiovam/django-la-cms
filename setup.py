@@ -22,12 +22,11 @@ def get_requirements(filename):
     install_requires = []
     dependency_links = []
     
-    dependency_links = [line.strip()
-            for line in open(join(ROOT, filename))
-            if '://' in line]
-    
-    for r in parse_requirements(filename, session=False):
-        install_requires.append(str(r.req))
+    for line in open(join(ROOT, filename)):
+        if '://' in line:
+            dependency_links.append(line.replace('-e','').strip())
+        else:
+            install_requires.append(line)
         
     return install_requires, dependency_links
 
