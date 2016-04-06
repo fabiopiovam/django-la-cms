@@ -4,12 +4,12 @@
 from setuptools import setup, find_packages
 
 try:
-    README = open('README.md', encoding='utf-8').read()
+    README = open('README.md').read()
 except:
     README = None
 
 try:
-    REQUIREMENTS = open('requirements.txt', encoding='utf-8').read()
+    REQUIREMENTS = open('requirements.txt').read()
 except:
     REQUIREMENTS = None
 
