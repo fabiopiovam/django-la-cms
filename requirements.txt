@@ -1,4 +1,4 @@
 Django>=1.4.10
 django-admin-sortable==1.7.3
 django-ckeditor-updated==4.4.0
-django-la-tags
+-e git://github.com/laborautonomo/django-la-tags.git@v0.1.0#egg=django-la-tags
