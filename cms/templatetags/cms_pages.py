@@ -7,7 +7,7 @@ register = Library()
 
 @register.inclusion_tag('cms/_list_pages.html')
 def list_pages(category=''):
-    
+    #TODO: verificar orderby - parametro definido em movase.info
     try:
         if not category:
             pages = Page.activated.all()
