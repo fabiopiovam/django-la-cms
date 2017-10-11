@@ -1,34 +1,35 @@
 from django.template import Library
 from django.core.exceptions import ObjectDoesNotExist
 
-from cms.models import Category, Page
+from cms.models import Page
 
 register = Library()
 
+
 @register.inclusion_tag('cms/_list_pages.html')
 def list_pages(category=''):
-    #TODO: verificar orderby - parametro definido em movase.info
     try:
         if not category:
             pages = Page.activated.all()
         else:
             pages = Page.activated.filter(category__slug=category)
-        
+
     except ObjectDoesNotExist:
         pages = None
-    
-    return {'pages': pages,}
+
+    return {'pages': pages, }
+
 
 @register.assignment_tag
 def get_page_links(category=''):
-    
+
     try:
         if not category:
             pages = Page.activated.all()
         else:
             pages = Page.activated.filter(category__slug=category)
-        
+
     except ObjectDoesNotExist:
         pages = None
-    
+
     return pages

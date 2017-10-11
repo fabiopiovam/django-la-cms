@@ -1,7 +1,10 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import url
+from cms import views
 
-urlpatterns = patterns('cms.views',
-    url(r'^category/(?P<category_slug>.*?)/$', 'pages'),
-    url(r'^$', 'pages', name='pages'),
-    url(r'^(?P<slug>.*?)/$', 'page', name='page'),
-)
+app_name = 'cms'
+
+urlpatterns = [
+    url(r'^category/(?P<category_slug>.*?)/$', views.pages),
+    url(r'^$', views.pages, name='pages'),
+    url(r'^(?P<slug>.*?)/$', views.page, name='page'),
+]
