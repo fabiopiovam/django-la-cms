@@ -1,5 +1,5 @@
-Django<1.12
-django-admin-sortable<2.2
-django-ckeditor<=5.3.0
+Django
+django-admin-sortable
+django-ckeditor
 # -e git://github.com/laborautonomo/django-la-tags.git@255e66c0e06855528cb54bfbd8701ba08a80ddd6#egg=django_la_tags
 

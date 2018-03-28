@@ -20,7 +20,7 @@ def list_pages(category=''):
     return {'pages': pages, }
 
 
-@register.assignment_tag
+@register.simple_tag
 def get_page_links(category=''):
 
     try:
